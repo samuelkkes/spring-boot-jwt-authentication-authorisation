@@ -1,0 +1,16 @@
+spring:
+  jwt:
+    secret: 6a85c93d2e84649584ee628f3f25b13d8e4ca32a98eaa0840a613ad2ed4eea1b
+  application:
+    name: demo
+  datasource:
+    username: postgres
+    password: kelisam2001
+    url: jdbc:postgresql://localhost:5432/spring_boot_security_demo
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
