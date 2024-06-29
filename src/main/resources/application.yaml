@@ -4,12 +4,12 @@ spring:
   application:
     name: demo
   datasource:
-    username: postgres
-    password: kelisam2001
-    url: jdbc:postgresql://localhost:5432/spring_boot_security_demo
+    username: username
+    password: password
+    url: jdbc:postgresql://localhost:5432/database_name
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: create-drop (change to create, update or what suit best your need )
     show-sql: true
     properties:
       hibernate:
