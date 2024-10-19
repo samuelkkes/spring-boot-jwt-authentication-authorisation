@@ -15,10 +15,10 @@ import java.util.Map;
 import java.util.function.Function;
 
 @Service
-public class JwtService {
+public class JwtService { //JWTUtils
 
     @Value("${spring.jwt.secret}")
-    private String SECRET_KEY;
+    private String SECRET_KEY;  //node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 
     private SecretKey getSecretKey() {
         byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
@@ -62,7 +62,7 @@ public class JwtService {
                 .signWith(secret, Jwts.SIG.HS256).compact();
     }
 
-    public Boolean isTkenValid(String token, UserDetails userDetails) {
+    public Boolean isTokenValid(String token, UserDetails userDetails) {
         final String username = extractUsername(token);
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }

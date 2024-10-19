@@ -9,7 +9,8 @@ spring:
     url: jdbc:postgresql://localhost:5432/database_name
   jpa:
     hibernate:
-      ddl-auto: create-drop (change to create, update or what suit best your need )
+      #  (change to create, update or what suit best your need )
+      ddl-auto: create-drop
     show-sql: true
     properties:
       hibernate:

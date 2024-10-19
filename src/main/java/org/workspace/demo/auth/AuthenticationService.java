@@ -8,7 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.workspace.demo.config.JwtService;
 import org.workspace.demo.user.Role;
-import org.workspace.demo.user.User;
+import org.workspace.demo.user.Users;
 import org.workspace.demo.user.UserRepo;
 
 @Service
@@ -21,7 +21,7 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     public AuthenticationResponse register(RegisterRequest request) {
-        var user = User.builder()
+        var user = Users.builder()
                 .firstname(request.getFirstname())
                 .lastname(request.getLastname())
                 .email(request.getEmail())
@@ -43,7 +43,7 @@ public class AuthenticationService {
                 )
         );
         var user = repo.findUserByEmail(request.getEmail())
-                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+                .orElseThrow(() -> new UsernameNotFoundException("Users not found"));
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
                 .token(jwtToken)

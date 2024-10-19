@@ -18,8 +18,8 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "_user")
-public class User implements UserDetails {
+@Table(name = "users")
+public class Users implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
